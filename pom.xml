@@ -29,7 +29,7 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <!-- dependencia de configuración producción -->
 <!--<dependency>
     <groupId>org.postgresql</groupId>
     <artifactId>postgresql</artifactId>
