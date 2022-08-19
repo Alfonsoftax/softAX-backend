@@ -34,7 +34,7 @@ public class ContactoControlador {
 		return repositorio.findAll();
 	}
 	
-	//Este método sirve para guardar un contacto
+	//Este método sirve para guardaar un contacto
 	@PostMapping("/contacto")
 	public Contacto guardarContacto(@RequestBody Contacto contacto) {
 		return repositorio.save(contacto);
