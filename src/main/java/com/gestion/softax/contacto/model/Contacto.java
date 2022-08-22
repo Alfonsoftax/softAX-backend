@@ -15,14 +15,17 @@ public class Contacto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "nombre",length = 60, nullable = false)
+	@Column(name = "NOMBRE",length = 60, nullable = false)
 	private String nombre;
 	
-	@Column(name = "mensaje",length = 500, nullable = false)
+	@Column(name = "MENSAJE",length = 500, nullable = false)
 	private String mensaje;
 	
-	@Column(name = "email",length = 60, nullable = false, unique = false)
+	@Column(name = "EMAIL",length = 60, nullable = false, unique = false)
 	private String email;
+	
+	@Column(name = "FIN_PROYECTO",length = 1, unique = false)
+	private String finProyecto;
 	
 	public Contacto() {
 		
@@ -44,6 +47,16 @@ public class Contacto {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	public String getFinProyecto() {
+		return finProyecto;
+	}
+
+
+	public void setFinProyecto(String finProyecto) {
+		this.finProyecto = finProyecto;
+	}
+
 
 	public String getNombre() {
 		return nombre;

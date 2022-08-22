@@ -1,5 +1,6 @@
 package com.gestion.softax.contacto.controlador;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,8 +23,8 @@ import com.gestion.softax.contacto.repositorio.ContactoRepositorio;
 
 @RestController
 @RequestMapping("/api/v1/")
-@CrossOrigin(origins = "http://localhost:4200/")
-//@CrossOrigin(origins = "http://softax.es/")
+//@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "https://softax.es/")
 public class ContactoControlador {
 
 	@Autowired
@@ -32,7 +33,15 @@ public class ContactoControlador {
 	//este método lista todos los contactos
 	@GetMapping("/contacto")
 	public List<Contacto> listarTodosLosContactos() {
-		return repositorio.findAll();
+		List<Contacto> con = new ArrayList<>();
+		List<Contacto> proyectosTerminados = new ArrayList<>();
+		con = repositorio.findAll();
+		for(Contacto c: con) {
+			if(c.getFinProyecto() == null) {
+				proyectosTerminados.add(c);
+			}
+		}
+		return proyectosTerminados;
 	}
 	
 	//Este método sirve para guardaar un contacto
@@ -57,6 +66,16 @@ public class ContactoControlador {
 		contacto.setNombre(detallesContacto.getNombre());
 		contacto.setMensaje(detallesContacto.getMensaje());
 		contacto.setEmail(detallesContacto.getEmail());
+		Contacto contactoActualizado = repositorio.save(contacto);
+		return ResponseEntity.ok(contactoActualizado);
+	}
+	
+	//finaliza el contacto
+	@PutMapping("/fin-proyecto/{id}")
+	public ResponseEntity<Contacto> finalizaContactoContacto(@PathVariable Long id, @RequestBody Contacto detallesContacto) {
+		Contacto contacto = repositorio.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("No existe el contacto con el id: " + id));
+		contacto.setFinProyecto("1");
 		Contacto contactoActualizado = repositorio.save(contacto);
 		return ResponseEntity.ok(contactoActualizado);
 	}
