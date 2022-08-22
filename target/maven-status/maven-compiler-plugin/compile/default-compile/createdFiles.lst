@@ -1,0 +1,11 @@
+com\gestion\softax\contacto\excepciones\ResourceNotFoundException.class
+com\gestion\softax\contacto\repositorio\TrabajarJuntosRepositorio.class
+com\gestion\softax\contacto\repositorio\ContactoRepositorio.class
+com\gestion\softax\contacto\controlador\ContactoControlador.class
+com\gestion\softax\contacto\controlador\ProyectoMedidaControlador.class
+com\gestion\softax\contacto\model\TrabajarJuntos.class
+com\gestion\softax\contacto\repositorio\ProyectoMedidaRepositorio.class
+com\gestion\softax\contacto\model\Contacto.class
+com\gestion\softax\contacto\model\ProyectoMedida.class
+com\gestion\softax\contacto\controlador\TrabajarJuntosControlador.class
+com\gestion\softax\GestionSoftaxBackendApplication.class
