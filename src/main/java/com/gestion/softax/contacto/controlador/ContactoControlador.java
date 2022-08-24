@@ -23,7 +23,7 @@ import com.gestion.softax.contacto.repositorio.ContactoRepositorio;
 @RestController
 @RequestMapping("/api/v1/")
 //@CrossOrigin(origins = "http://localhost:4200/")
-@CrossOrigin(origins = {"https://softax.es/", "https://softaxserver.online/"})
+@CrossOrigin(origins = {"https://softax.es/", "https://portfolio.softax.es/"})
 public class ContactoControlador {
 
 	@Autowired
